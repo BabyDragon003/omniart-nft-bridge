@@ -8,6 +8,17 @@
         },
         {
           "internalType": "string",
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_minGasToTransfer",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_layerZeroEndpoint",
           "type": "address"
         },
         {

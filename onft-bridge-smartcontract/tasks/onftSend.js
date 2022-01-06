@@ -8,6 +8,17 @@ module.exports = async function (taskArgs, hre) {
     // get remote chain id
     const remoteChainId = CHAIN_ID[taskArgs.targetNetwork]
 
+    // get local contract
+    const onft = await ethers.getContract(taskArgs.contract)
+
+    // quote fee with default adapterParams
+    const adapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 2000]) // default adapterParams example
+
+    const fees = await onft.estimateSendFee(remoteChainId, toAddress, tokenId, false, adapterParams)
+    const nativeFee = fees[0]
+    console.log(`native fees (wei): ${nativeFee}`)
+
+    const tx = await onft.sendFrom(
         owner.address,                  // 'from' address to send tokens
         remoteChainId,                  // remote LayerZero chainId
         toAddress,                      // 'to' address to send tokens

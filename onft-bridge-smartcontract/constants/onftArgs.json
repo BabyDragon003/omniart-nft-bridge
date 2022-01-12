@@ -1,3 +1,4 @@
+{
 "optimism-goerli": {"startMintId": 1,"endMintId": 100},
 "polygon": {"startMintId": 1,"endMintId": 100},
 "optimism": {"startMintId": 101,"endMintId": 200},
@@ -7,5 +8,3 @@
 "mantle": {"startMintId": 501,"endMintId": 600},
 "polygon-zkevm": {"startMintId": 601,"endMintId": 700},
 "linea": {"startMintId": 701,"endMintId": 800},
-"":{}
-}

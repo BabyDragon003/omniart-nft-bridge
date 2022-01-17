@@ -1,4 +1,3 @@
-// require('dotenv').config();
 import Web3 from "web3";
 import { Collection, SrcChain, DstChain } from "../store/selectors";
 import { useSelector } from "react-redux";

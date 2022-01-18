@@ -1,3 +1,4 @@
+module.exports = async function (taskArgs, hre) {
     console.log({taskArgs})
     const nonBlockingApp = await ethers.getContractAt("NonblockingLzApp", taskArgs.desAddress)
 

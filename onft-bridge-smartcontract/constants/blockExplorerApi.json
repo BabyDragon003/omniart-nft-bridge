@@ -1,3 +1,4 @@
+{
   "avalanche": "https://api.snowtrace.io/api",
   "fuji": "https://api-testnet.snowtrace.io/",
   "bsc": "https://api.bscscan.com/api",

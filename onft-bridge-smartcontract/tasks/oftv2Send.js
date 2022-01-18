@@ -1,13 +1,8 @@
+const CHAIN_ID = require("../constants/chainIds.json")
 
 module.exports = async function (taskArgs, hre) {
     let signers = await ethers.getSigners()
     let owner = signers[0]
-    let toAddress = owner.address;
-    let qty = ethers.utils.parseEther(taskArgs.qty)
-
-    let localContract, remoteContract;
-
-    if(taskArgs.contract) {
         localContract = taskArgs.contract;
         remoteContract = taskArgs.contract;
     } else {

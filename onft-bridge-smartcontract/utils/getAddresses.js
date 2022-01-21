@@ -13,12 +13,8 @@ async function getAddresses(environment, contractCsv) {
         for (const network of networks) {
             let fileName = `deployments/${network}/${contract[0].toUpperCase() + contract.substring(1)}.json`;
             if(fs.existsSync(fileName)) {
+                promises.push(getAddressForNetwork(fileName, network))
             }
-            res(`${network}: ${JSON.parse(content).address}`)
-        })
-    })
-}
-
-// to run: node getAddresses ${ENVIRONMENT} ${CONTRACT_CSV}
-// example: node getAddresses testnet Relayer,Endpoint,UltraLightNode
-getAddresses(environmentArg, contractCsvArg).then((res) => console.log("\nComplete!"))
+        }
+    }
+    const resolvedPromises = await Promise.all(promises)

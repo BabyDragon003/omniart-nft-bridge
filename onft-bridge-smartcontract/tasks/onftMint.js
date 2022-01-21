@@ -13,3 +13,8 @@ module.exports = async function (taskArgs, hre) {
         } else {
             console.log(e)
         }
+    }
+}
+
+// npx hardhat --network bsc-testnet onftMint --contract ExampleUniversalONFT721
+// npx hardhat --network fuji onftMint --contract ExampleUniversalONFT721

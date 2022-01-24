@@ -1,4 +1,3 @@
-const FileSystem = require("fs");
 const BLOCK_EXPLORER_API_URL = require("../constants/blockExplorerApi.json")
 
 const licenseTypes = {

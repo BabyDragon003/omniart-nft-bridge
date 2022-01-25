@@ -1,3 +1,4 @@
+// chainId = remotechainid
 // netId = rpc chain id
 export const CHAINS = {
 	"optimism-goerli": {

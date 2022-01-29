@@ -18,6 +18,27 @@ const DeployContract = () => {
     return (
         <div className='container text-start'>
             <h2 className='text-center my-4'>DEPLOY NEW CONTRACT</h2>
+            <div className="row border border-success p-3">
+                <table className='table'>
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>Contract Address</td>
+                            <td>Title</td>
+                            <td>Description</td>
+                            <td>Amount</td>
+                            <td>Platform Fee</td>
+                            <td>Total Allowed Mint</td>
+                            <td>Existing Mint</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {contracts && contracts.map((contract,i)=>(
+                            <tr>
+                                <td>{i+1}</td>
+                                <td>{contract.address}</td>
+                                <td>{contract.title}</td>
+                                <td>{contract.description}</td>
                                 <td>{contract.amount}</td>
                                 <td>{contract.platform_fee}</td>
                                 <td>{contract.total_supply}</td>

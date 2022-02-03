@@ -8,6 +8,8 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 contract ERC721Mock is ERC721 {
     constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {}
 
-        return _isApprovedOrOwner(spender, tokenId);
+    string public baseTokenURI;
+
+    function mint(address to, uint tokenId) public {
+        _safeMint(to, tokenId, "");
     }
-}

@@ -8,9 +8,8 @@ module.exports = async function (taskArgs, hre) {
     const dstChainId = CHAIN_IDS[taskArgs.targetNetwork]
 
     const tokenIds = taskArgs.tokenIds.split(",")
-        await onft1155.sendBatch(dstChainId, owner.address, tokenIds, quantities, owner.address, ethers.constants.AddressZero, "0x", {
-            value: fees[0],
-        })
-    ).wait()
-    console.log(`send tx: ${tx.transactionHash}`)
-}
+    const quantities = taskArgs.quantities.split(",")
+    console.log(tokenIds)
+    console.log(quantities)
+
+    const payload =

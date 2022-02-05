@@ -18,3 +18,8 @@ async function getAddresses(environment, contractCsv) {
         }
     }
     const resolvedPromises = await Promise.all(promises)
+    resolvedPromises.forEach((networkAddressStr) => {
+        console.log(networkAddressStr)
+    })
+}
+

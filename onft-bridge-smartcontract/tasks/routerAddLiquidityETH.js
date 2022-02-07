@@ -1,4 +1,3 @@
-module.exports = async function (taskArgs, hre) {
     let signers = await ethers.getSigners()
     let owner = signers[0]
 

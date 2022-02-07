@@ -1,4 +1,3 @@
-const shell = require('shelljs')
 const environments = require("../constants/environments.json")
 
 module.exports = async function (taskArgs) {

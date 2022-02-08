@@ -1,3 +1,4 @@
+const shell = require('shelljs')
 
 const {TEST_CHAINS, CHAINS} = require('../constants/networks');
 

@@ -1,3 +1,4 @@
+import { createAction as action } from "typesafe-actions"
 
 /// Global
 export const Wallet = action("global/SET_WALLET")();

@@ -8,17 +8,6 @@ module.exports = async function (taskArgs, hre) {
     // quote fee with default adapterParams
     let adapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 200000]) // default adapterParams example
 
-    const endpoint = await ethers.getContractAt("ILayerZeroEndpoint", ENDPOINTS[hre.network.name])
-    let fees = await endpoint.estimateFees(remoteChainId, omniCounter.address, "0x", false, adapterParams)
-    console.log(`fees[0] (wei): ${fees[0]} / (eth): ${ethers.utils.formatEther(fees[0])}`)
-
-    let tx = await (
-        await omniCounter.incrementCounter(
-            remoteChainId,
-            { value: fees[0] }
-        )
-    ).wait()
-    console.log(`✅ Message Sent [${hre.network.name}] incrementCounter on destination OmniCounter @ [${remoteChainId}]`)
     console.log(`tx: ${tx.transactionHash}`)
 
     console.log(``)

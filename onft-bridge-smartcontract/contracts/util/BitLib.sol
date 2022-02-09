@@ -3,16 +3,11 @@ pragma solidity >=0.5.0;
 
 // mostSignificantBitPosition taken from: https://github.com/Uniswap/solidity-lib/blob/master/contracts/libraries/BitMath.sol
 // countSetBits based off: https://en.wikipedia.org/wiki/Hamming_weight
-    uint256 constant m8  = 0x00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF;
-    uint256 constant m16 = 0x0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF;
-    uint256 constant m32 = 0x00000000FFFFFFFF00000000FFFFFFFF00000000FFFFFFFF00000000FFFFFFFF;
-    uint256 constant m64 = 0x0000000000000000FFFFFFFFFFFFFFFF0000000000000000FFFFFFFFFFFFFFFF;
-    uint256 constant m128= 0x00000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
 
-    function mostSignificantBitPosition(uint256 x) internal pure returns (uint8 r) {
-        if(x == 0) return 0;
+library BitLib {
 
-        if (x >= 0x100000000000000000000000000000000) {
+    uint256 constant m1  = 0x5555555555555555555555555555555555555555555555555555555555555555;
+    uint256 constant m2  = 0x3333333333333333333333333333333333333333333333333333333333333333;
             x >>= 128;
             r += 128;
         }

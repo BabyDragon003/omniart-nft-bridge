@@ -8,3 +8,5 @@
 "mantle": {"startMintId": 501,"endMintId": 600},
 "polygon-zkevm": {"startMintId": 601,"endMintId": 700},
 "linea": {"startMintId": 701,"endMintId": 800},
+"":{}
+}

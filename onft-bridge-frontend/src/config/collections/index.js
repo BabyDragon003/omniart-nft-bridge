@@ -18,16 +18,11 @@ const Collections = {
 	"Collection1" : {
 		// "optimism-goerli": { 
 		// 	contractAddress: "0x06918Be9843BA1F6Ba9289e93c29e8cFA5aCb470",
+		// 	abi: ENUM_Op_Goerli,
 		// },
-		// "polygon-zkevm-test": {
-		// 	contractAddress: "0x978b8B1E7C0049AA8acC353773efa1015a9AaEf1",
-		// 	abi: ENUM_Polygon_Zkevm_Testnet,
-		// },
-		// "zksync-testnet": {
-		// 	contractAddress: "0xA3D45BE8f56eDCB11F6B162BCF7C1fd78f700218",
-		// 	abi: ENUM_ZkSync_Testnet,
-		// },
-		"polygon": {
+		// "mumbai": {
+		// 	contractAddress: "0xE65c9828f6cB33E1248a2e4AAeDC1f841c3c1C93",
+		// 	abi: ENUM_Mumbai,
 			contractAddress: "0x978b8B1E7C0049AA8acC353773efa1015a9AaEf1",
 			abi: ENUM_Polygon,
 		},

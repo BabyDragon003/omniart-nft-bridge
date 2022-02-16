@@ -1,3 +1,4 @@
+const CHAIN_ID = require("../constants/chainIds.json")
 const environments = require("../constants/environments.json")
 
 function TrustedRemoteTestnet() {

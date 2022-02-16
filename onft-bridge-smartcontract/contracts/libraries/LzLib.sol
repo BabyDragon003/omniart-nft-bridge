@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: BUSL-1.1
 
 pragma solidity >=0.6.0;
 pragma experimental ABIEncoderV2;
@@ -7,17 +8,6 @@ library LzLib {
     struct CallParams {
         address payable refundAddress;
         address zroPaymentAddress;
-    }
-
-    //---------------------------------------------------------------------------
-    // Address type handling
-
-    struct AirdropParams {
-        uint airdropAmount;
-        bytes32 airdropAddress;
-    }
-
-    function buildAdapterParams(LzLib.AirdropParams memory _airdropParams, uint _uaGasLimit) internal pure returns (bytes memory adapterParams) {
         if (_airdropParams.airdropAmount == 0 && _airdropParams.airdropAddress == bytes32(0x0)) {
             adapterParams = buildDefaultAdapterParams(_uaGasLimit);
         } else {

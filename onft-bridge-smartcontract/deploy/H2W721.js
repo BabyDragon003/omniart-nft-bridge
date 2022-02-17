@@ -8,4 +8,15 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
 
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     const onftArgs = ONFT_ARGS[hre.network.name]
+    console.log({ onftArgs })
+    console.log(`[${hre.network.name}] LayerZero Endpoint address: ${lzEndpointAddress}`)
+
+    await deploy("H2W721", {
+        from: deployer,
+        args: ["H2WONFT", "H2W ONFT", 40000, lzEndpointAddress, onftArgs.startMintId, onftArgs.endMintId],
+        log: true,
+        waitConfirmations: 1,
+    })
+}
+
 module.exports.tags = ["H2W721"]

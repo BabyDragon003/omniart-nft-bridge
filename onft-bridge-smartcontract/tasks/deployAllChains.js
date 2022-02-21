@@ -1,4 +1,3 @@
-const shell = require('shelljs')
 const {TEST_CHAINS, CHAINS} = require('../constants/networks');
 
 module.exports = async function (taskArgs, hre) {

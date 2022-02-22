@@ -1,3 +1,4 @@
+module.exports = async function (taskArgs, hre) {
     const ERC1155 = await ethers.getContractFactory("ERC1155")
     const erc1155 = await ERC1155.attach(taskArgs.addr)
     const proxyONFT1155 = await ethers.getContract("ProxyONFT1155")

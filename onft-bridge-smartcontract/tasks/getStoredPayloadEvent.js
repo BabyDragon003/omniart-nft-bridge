@@ -3,26 +3,16 @@ const ABI = require("../constants/endpoint_abi.json")
 
 module.exports = async function (taskArgs, hre) {
     let blockStart = (await ethers.provider.getTransaction(taskArgs.txStart)).blockNumber
+    let blockEnd = taskArgs.txEnd !== undefined ? (await ethers.provider.getTransaction(taskArgs.txEnd)).blockNumber : await ethers.provider.getBlockNumber();
+
+    console.log(`blockStart: ${blockStart} -> blockEnd: ${blockEnd}`)
+    console.log(hre.network.name)
+    console.log(LZ_ENDPOINTS[hre.network.name])
+
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     const endpoint = await hre.ethers.getContractAt(ABI, lzEndpointAddress)
 
     // concat remote and local address
-    let remoteAndLocal = hre.ethers.utils.solidityPack(
-        ['address','address'],
-        [taskArgs.srcAddress, taskArgs.desAddress]
-    )
-
-    const step = taskArgs.step
-    for (let from = blockStart; from <= blockEnd; from += step + 1) {
-        const to = Math.min(from + step, blockEnd)
-        const deposits = await endpoint.queryFilter(endpoint.filters.PayloadStored(), from, to)
-        for (const e of deposits) {
-            // event PayloadStored(uint16 srcChainId, bytes srcAddress, address dstAddress, uint64 nonce, bytes payload, bytes reason);
-            let storedPayload = {
-                "block": `${from}`,
-                "srcChainId": `${e?.args[0].toString()}`,
-                "srcAddress": `${e?.args[1].toString()}`,
-                "dstAddress": `${e?.args[2].toString()}`,
                 "nonce": `${e?.args[3].toString()}`,
                 "payload": `${e?.args[4].toString()}`,
                 "reason": `${e?.args[5].toString()}`

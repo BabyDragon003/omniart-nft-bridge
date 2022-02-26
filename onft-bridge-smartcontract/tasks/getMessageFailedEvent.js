@@ -18,3 +18,8 @@ module.exports = async function (taskArgs, hre) {
                 "srcChainId": `${e?.args[0].toString()}`,
                 "srcAddress": `${e?.args[1].toString()}`,
                 "nonce": `${e?.args[2].toString()}`,
+                "payload": `${e?.args[3].toString()}`,
+                "reason": `${e?.args[4].toString()}`
+            }
+            console.log(messageFailed)
+            if(taskArgs.nonce !== undefined && messageFailed.nonce === taskArgs.nonce) {

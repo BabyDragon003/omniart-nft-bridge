@@ -18,27 +18,6 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
     console.log(account.address);
   }
 });
-
-function getMnemonic(networkName) {
-  if (networkName) {
-    const mnemonic = process.env['MNEMONIC_' + networkName.toUpperCase()]
-    if (mnemonic && mnemonic !== '') {
-      return mnemonic
-    }
-  }
-
-  const mnemonic = process.env.MNEMONIC
-  if (!mnemonic || mnemonic === '') {
-    return 'test test test test test test test test test test test junk'
-  }
-
-  return mnemonic
-}
-
-function accounts(chainKey) {
-  return { mnemonic: getMnemonic(chainKey) }
-}
-
 function accounts2(chainKey) {
   return { privatekey: `${process.env.PRIVATE_KEY}` }
 }

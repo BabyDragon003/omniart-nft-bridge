@@ -18,6 +18,27 @@ contract H2W721 is ONFT721 {
     constructor(
     string memory name,
     string memory symbol,
+    uint256 _minGasToTransfer,
+    address _layerZeroEndpoint,
+    uint _startMintId,
+    uint _endMintId) ONFT721(name, symbol, _minGasToTransfer, _layerZeroEndpoint) {
+        nextMintId = _startMintId;
+        maxMintId = _endMintId;
+    }
+    
+    function mint() external payable {
+        require(msg.value >= fee, "Not enough ether sent");
+        require(nextMintId <= maxMintId, "Too many, bruv");
+        uint newId = nextMintId;
+        nextMintId++;
+
+        _safeMint(msg.sender, newId); 
+
+        emit Transfer(address(0), msg.sender, newId);
+    }
+
+    function estimateGasBridgeFee(uint16 _dstChainId, bool _useZro, bytes memory _adapterParams) public view virtual returns (uint nativeFee, uint zroFee) {
+        bytes memory payload = abi.encode(msg.sender,0);
         return lzEndpoint.estimateFees(_dstChainId, payable(address(this)), payload, _useZro, _adapterParams);
     }
 

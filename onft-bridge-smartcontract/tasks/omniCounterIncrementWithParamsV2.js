@@ -23,3 +23,12 @@ module.exports = async function (taskArgs, hre) {
         )
     ).wait()
     console.log(
+        `✅ Message Sent [${hre.network.name}] omniCounterIncrementWithParamsV2 on destination OmniCounter @ [${dstChainId}] [${dstAddr}]`
+    )
+    console.log(`tx: ${tx.transactionHash}`)
+
+    console.log(``)
+    console.log(`Note: to poll/wait for the message to arrive on the destination use the command:`)
+    console.log("")
+    console.log(`    $ npx hardhat --network ${taskArgs.targetNetwork} omniCounterPoll`)
+}

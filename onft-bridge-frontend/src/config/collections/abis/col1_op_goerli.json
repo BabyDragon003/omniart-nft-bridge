@@ -13,22 +13,6 @@
         },
         {
           "internalType": "uint256",
-          "name": "_minGasToTransfer",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "_layerZeroEndpoint",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_startMintId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_endMintId",
           "type": "uint256"
         }
       ],

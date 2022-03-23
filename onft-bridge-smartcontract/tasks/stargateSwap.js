@@ -3,6 +3,12 @@ const { getDeploymentAddresses } = require("../utils/readStatic")
 
 module.exports = async function (taskArgs, hre) {
     console.log(taskArgs)
+
+    let signers = await ethers.getSigners()
+    let owner = signers[0]
+    let tx
+
+    const erc20 = await ethers.getContractAt("ERC20", taskArgs.bridgeToken)
     console.log(`[${hre.network.name}] ERC20: ${erc20.address}`)
     const qty = taskArgs.qty
     const dstChainId = CHAIN_ID[taskArgs.targetNetwork]

@@ -8,17 +8,6 @@
   ],
   "description": "example contracts",
   "main": "index.js",
-  "scripts": {
-    "test": "npx hardhat test",
-    "prettier": "prettier --write test/**/*.js && prettier --write test/*/*/*.js && prettier --write deploy/*.js && prettier --write tasks/*.js && prettier --write contracts/**/*.sol && prettier --write contracts/**/**/*.sol && prettier --write contracts/**/**/**/*.sol",
-    "lint": "yarn prettier && solhint 'contracts/*.sol' && solhint 'contracts/**/*.sol' && solhint 'contracts/**/**/*.sol' && solhint 'contracts/**/**/**/*.sol'"
-  },
-  "dependencies": {
-    "@layerzerolabs/lz-evm-sdk-v1-0.7": "^1.5.14",
-    "@openzeppelin/contracts": "^4.4.1",
-    "@openzeppelin-3/contracts": "npm:@openzeppelin/contracts@^3.4.2-solc-0.7",
-    "@openzeppelin/contracts-upgradeable": "^4.6.0",
-    "@openzeppelin/hardhat-upgrades": "^1.18.3",
     "erc721a": "^4.2.3",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",

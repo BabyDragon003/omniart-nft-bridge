@@ -1,4 +1,3 @@
-const { BigNumber } = require("ethers")
 const { ethers, network } = require("hardhat")
 
 deployNew = async (contractName, params = []) => {

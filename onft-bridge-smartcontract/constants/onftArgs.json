@@ -1,4 +1,3 @@
-{
 "optimism-goerli": {"startMintId": 1,"endMintId": 100},
 "polygon": {"startMintId": 1,"endMintId": 100},
 "optimism": {"startMintId": 101,"endMintId": 200},

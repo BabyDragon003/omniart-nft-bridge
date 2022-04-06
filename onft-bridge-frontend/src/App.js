@@ -3,16 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import ONFTBridge from './components/ONFTBridge';
-  RainbowKitProvider,
-} from '@rainbow-me/rainbowkit';
-import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import DeployContract from './components/DeployContract';
+import './App.css';
+
+import '@rainbow-me/rainbowkit/styles.css';
 import {
-  mainnet,
-  polygonMumbai,  
-  optimismGoerli,
-  lineaTestnet,
-  mantleTestnet,
-  polygonZkEvmTestnet,
   bscTestnet,
   baseGoerli,
   zkSyncTestnet,

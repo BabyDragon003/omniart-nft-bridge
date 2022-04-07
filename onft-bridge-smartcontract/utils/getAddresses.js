@@ -8,16 +8,11 @@ async function getAddresses(environment, contractCsv) {
     let contracts = contractCsv.split(",")
     const promises = []
     for (const contract of contracts) {
-        console.log(networkAddressStr)
-    })
-}
-
-function getAddressForNetwork(file, network) {
-    return new Promise((res) => {
-        fs.readFile(file, (error, content) => {
-            if (content === undefined) {
-                console.log(`File: ${file} does not exsist`)
-                return
+        promises.push("\n" + contract)
+        const networks = environments[environment];
+        for (const network of networks) {
+            let fileName = `deployments/${network}/${contract[0].toUpperCase() + contract.substring(1)}.json`;
+            if(fs.existsSync(fileName)) {
             }
             res(`${network}: ${JSON.parse(content).address}`)
         })

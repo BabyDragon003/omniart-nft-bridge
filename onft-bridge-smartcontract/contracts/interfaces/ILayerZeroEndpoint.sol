@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: MIT
 
 pragma solidity >=0.5.0;
 
@@ -22,6 +21,32 @@ interface ILayerZeroEndpoint is ILayerZeroUserApplicationConfig {
     // @param _gasLimit - the gas limit for external contract execution
     // @param _payload - verified payload to send to the destination contract
     function receivePayload(uint16 _srcChainId, bytes calldata _srcAddress, address _dstAddress, uint64 _nonce, uint _gasLimit, bytes calldata _payload) external;
+
+    // @notice get the inboundNonce of a lzApp from a source chain which could be EVM or non-EVM chain
+    // @param _srcChainId - the source chain identifier
+    // @param _srcAddress - the source chain contract address
+    function getInboundNonce(uint16 _srcChainId, bytes calldata _srcAddress) external view returns (uint64);
+
+    // @notice get the outboundNonce from this source chain which, consequently, is always an EVM
+    // @param _srcAddress - the source chain contract address
+    function getOutboundNonce(uint16 _dstChainId, address _srcAddress) external view returns (uint64);
+
+    // @notice gets a quote in source native gas, for the amount that send() requires to pay for message delivery
+    // @param _dstChainId - the destination chain identifier
+    // @param _userApplication - the user app address on this EVM chain
+    // @param _payload - the custom message to send over LayerZero
+    // @param _payInZRO - if false, user app pays the protocol fee in native token
+    // @param _adapterParam - parameters for the adapter service, e.g. send some dust native token to dstChain
+    function estimateFees(uint16 _dstChainId, address _userApplication, bytes calldata _payload, bool _payInZRO, bytes calldata _adapterParam) external view returns (uint nativeFee, uint zroFee);
+
+    // @notice get this Endpoint's immutable source identifier
+    function getChainId() external view returns (uint16);
+
+    // @notice the interface to retry failed message on this Endpoint destination
+    // @param _srcChainId - the source chain identifier
+    // @param _srcAddress - the source chain contract address
+    // @param _payload - the payload to be retried
+    function retryPayload(uint16 _srcChainId, bytes calldata _srcAddress, bytes calldata _payload) external;
 
     // @notice query if any STORED payload (message blocking) at the endpoint.
     // @param _srcChainId - the source chain identifier

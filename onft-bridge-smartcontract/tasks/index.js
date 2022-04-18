@@ -1,4 +1,3 @@
-// set the Oracle address for the OmniCounter
 // example:
 task("omniCounterSetOracle", "set the UA (an OmniCounter contract) to use the specified oracle for the destination chain", require("./omniCounterSetOracle"))
     .addParam("targetNetwork", "the target network name, ie: fuji, or mumbai, etc (from hardhat.config.js)")

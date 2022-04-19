@@ -1,13 +1,8 @@
+const LZ_ENDPOINTS = require("../constants/layerzeroEndpoints.json");
 const ABI = require("../constants/endpoint_abi.json")
 
 module.exports = async function (taskArgs, hre) {
     let blockStart = (await ethers.provider.getTransaction(taskArgs.txStart)).blockNumber
-    let blockEnd = taskArgs.txEnd !== undefined ? (await ethers.provider.getTransaction(taskArgs.txEnd)).blockNumber : await ethers.provider.getBlockNumber();
-
-    console.log(`blockStart: ${blockStart} -> blockEnd: ${blockEnd}`)
-    console.log(hre.network.name)
-    console.log(LZ_ENDPOINTS[hre.network.name])
-
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     const endpoint = await hre.ethers.getContractAt(ABI, lzEndpointAddress)
 

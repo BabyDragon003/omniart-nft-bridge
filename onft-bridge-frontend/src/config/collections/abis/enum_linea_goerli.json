@@ -3,16 +3,11 @@
       "inputs": [
         {
           "internalType": "string",
+          "name": "name",
           "type": "string"
         },
         {
-          "internalType": "uint256",
-          "name": "_minGasToTransfer",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "_layerZeroEndpoint",
+          "internalType": "string",
           "type": "address"
         },
         {

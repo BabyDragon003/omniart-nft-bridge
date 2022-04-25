@@ -1,4 +1,3 @@
-import { getType } from "typesafe-actions";
 import { ALERT_EMPTY } from "../../utils/constants";
 import * as actions from "../actions"
 

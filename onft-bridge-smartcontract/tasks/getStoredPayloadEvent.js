@@ -1,4 +1,3 @@
-const LZ_ENDPOINTS = require("../constants/layerzeroEndpoints.json");
 const ABI = require("../constants/endpoint_abi.json")
 
 module.exports = async function (taskArgs, hre) {

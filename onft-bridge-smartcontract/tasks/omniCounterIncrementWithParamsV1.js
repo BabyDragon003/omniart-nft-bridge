@@ -1,4 +1,3 @@
-const { getDeploymentAddresses } = require("../utils/readStatic")
 const CHAIN_ID = require("../constants/chainIds.json")
 
 module.exports = async function (taskArgs, hre) {

@@ -1,3 +1,4 @@
+const CHAIN_ID = require("../constants/chainIds.json")
 
 module.exports = async function (taskArgs, hre) {
     let signers = await ethers.getSigners()

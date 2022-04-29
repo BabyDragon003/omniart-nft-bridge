@@ -13,16 +13,11 @@ library ExcessivelySafeCall {
     /// copied to caller memory. This prevents stupid things like malicious
     /// contracts returning 10,000,000 bytes causing a local OOG when copying
     /// to memory.
-        bytes memory _returnData = new bytes(_maxCopy);
-        // dispatch message to recipient
-        // by assembly calling "handle" function
-        // we call via assembly to avoid memcopying a very large returndata
-        // returned by a malicious contract
-        assembly {
-            _success := call(
-            _gas, // gas
-            _target, // recipient
-            0, // ether value
+    /// @param _target The address to call
+    /// @param _gas The amount of gas to forward to the remote contract
+    /// @param _maxCopy The maximum number of bytes of returndata to copy
+    /// to memory.
+    /// @param _calldata The data to send to the remote contract
             add(_calldata, 0x20), // inloc
             mload(_calldata), // inlen
             0, // outloc

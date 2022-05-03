@@ -3,12 +3,6 @@
       "inputs": [
         {
           "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "symbol",
           "type": "string"
         },
         {
@@ -18,6 +12,27 @@
         },
         {
           "internalType": "address",
+          "name": "_layerZeroEndpoint",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_startMintId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_endMintId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
           "indexed": true,
           "internalType": "address",
           "name": "owner",

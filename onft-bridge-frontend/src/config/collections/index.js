@@ -3,12 +3,6 @@ import Col1_Mumbai from "./abis/col1_mumbai.json";
 import Col1_Op_Goerli from "./abis/col1_op_goerli.json";
 import ENUM_Op_Goerli from "./abis/enum_op_goerli.json";
 import ENUM_Base_Goerli from "./abis/enum_base_goerli.json";
-import ENUM_Bsc_Testnet from "./abis/enum_bsc_testnet.json";
-import ENUM_Linea_Goerli from "./abis/enum_linea_goerli.json";
-import ENUM_Mantle_Testnet from "./abis/enum_mantle_testnet.json";
-import ENUM_Mumbai from "./abis/enum_mumbai.json";
-import ENUM_Polygon_Zkevm_Testnet from "./abis/enum_polygon_zkevm_testnet.json";
-import ENUM_ZkSync_Testnet from "./abis/enum_zksync_testnet.json";
 import ENUM_Polygon from "./abis/enum_polygon.json";
 import ENUM_ZkSync from "./abis/enum_zksync.json";
 import ENUM_BSC from "./abis/enum_bsc.json";
@@ -18,6 +12,27 @@ const Collections = {
 	"Collection1" : {
 		// "optimism-goerli": { 
 		// 	contractAddress: "0x06918Be9843BA1F6Ba9289e93c29e8cFA5aCb470",
+		// 	abi: ENUM_Op_Goerli,
+		// },
+		// "mumbai": {
+		// 	contractAddress: "0xE65c9828f6cB33E1248a2e4AAeDC1f841c3c1C93",
+		// 	abi: ENUM_Mumbai,
+		// },
+		// "base-goerli": {
+		// 	contractAddress: "0x978b8B1E7C0049AA8acC353773efa1015a9AaEf1",
+		// 	abi: ENUM_Base_Goerli,
+		// },
+		// "bsc-testnet": {
+		// 	contractAddress: "0xbde34C8204F7e05bF7e7b1c7039208dAB6CEf714",
+		// 	abi: ENUM_Bsc_Testnet,
+		// },
+		// "linea-goerli": {
+		// 	contractAddress: "0x978b8B1E7C0049AA8acC353773efa1015a9AaEf1",
+		// 	abi: ENUM_Linea_Goerli,
+		// },
+		// "mantle_testnet": {
+		// 	contractAddress: "0x978b8B1E7C0049AA8acC353773efa1015a9AaEf1",
+		// 	abi: ENUM_Mantle_Testnet,
 		// },
 		// "polygon-zkevm-test": {
 		// 	contractAddress: "0x978b8B1E7C0049AA8acC353773efa1015a9AaEf1",

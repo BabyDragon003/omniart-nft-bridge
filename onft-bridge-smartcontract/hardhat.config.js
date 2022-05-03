@@ -3,12 +3,6 @@ require('hardhat-contract-sizer');
 require("@nomiclabs/hardhat-waffle");
 require(`@nomiclabs/hardhat-etherscan`);
 require("solidity-coverage");
-require('hardhat-gas-reporter');
-require('hardhat-deploy');
-require('hardhat-deploy-ethers');
-require('@openzeppelin/hardhat-upgrades');
-require('./tasks');
-
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
@@ -18,6 +12,27 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
     console.log(account.address);
   }
 });
+
+function getMnemonic(networkName) {
+  if (networkName) {
+    const mnemonic = process.env['MNEMONIC_' + networkName.toUpperCase()]
+    if (mnemonic && mnemonic !== '') {
+      return mnemonic
+    }
+  }
+
+  const mnemonic = process.env.MNEMONIC
+  if (!mnemonic || mnemonic === '') {
+    return 'test test test test test test test test test test test junk'
+  }
+
+  return mnemonic
+}
+
+function accounts(chainKey) {
+  return { mnemonic: getMnemonic(chainKey) }
+}
+
 function accounts2(chainKey) {
   return { privatekey: `${process.env.PRIVATE_KEY}` }
 }

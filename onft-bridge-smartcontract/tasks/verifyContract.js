@@ -3,6 +3,12 @@ const BLOCK_EXPLORER_API_URL = require("../constants/blockExplorerApi.json")
 
 const licenseTypes = {
     "None": 1,
+    "Unlicense": 2,
+    "MIT": 3,
+    "GNU-GPLv2": 4,
+    'GNU-GPLv3': 5,
+    'GNU-LGPLv2.1': 6,
+    'GNU-LGPLv3': 7,
     'BSD-2-Clause': 8,
     "BSD-3-Clause": 9,
     "MPL-2.0": 10,

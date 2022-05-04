@@ -8,17 +8,6 @@ module.exports = async function (taskArgs, hre) {
 
     let localContract, remoteContract;
 
-    if(taskArgs.contract) {
-        localContract = taskArgs.contract;
-        remoteContract = taskArgs.contract;
-    } else {
-        localContract = taskArgs.localContract;
-        remoteContract = taskArgs.remoteContract;
-    }
-
-    if(!localContract || !remoteContract) {
-        console.log("Must pass in contract name OR pass in both localContract name and remoteContract name")
-        return
     }
 
     // get remote chain id

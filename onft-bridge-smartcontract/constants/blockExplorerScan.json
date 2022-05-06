@@ -13,3 +13,11 @@
   "FANTOM_TESTNET": "https://api-testnet.ftmscan.com/api",
   "HARMONY": "",
   "INTAIN": "",
+  "KLAYTN": "",
+  "METIS": "",
+  "MOONBEAM": "https://api-moonbeam.moonscan.io/api",
+  "OPTIMISM": "https://api-optimistic.etherscan.io/api",
+  "POLYGON": "https://api.polygonscan.com/api",
+  "POLYGON_TESTNET": "https://api-testnet.polygonscan.com/api",
+  "SWIMMER": ""
+}

@@ -1,4 +1,3 @@
-const { expect } = require("chai")
 const { ethers } = require("hardhat")
 
 describe("H2W721: ", function () {

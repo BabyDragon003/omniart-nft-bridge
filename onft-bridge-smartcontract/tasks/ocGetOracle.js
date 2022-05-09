@@ -1,4 +1,3 @@
-const CHAIN_ID = require("../constants/chainIds.json")
 
 const TYPE_ORACLE = 6
 

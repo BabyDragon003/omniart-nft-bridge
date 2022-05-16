@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { useAccount, useWalletClient, usePublicClient } from 'wagmi';
 import { getONFTs, mintONFT, sendONFT, getONFTsByAccount, withdraw, getBalance, getTokenURI, withdrawAll } from "../web3/module";
 

@@ -1,4 +1,3 @@
-const CHAIN_IDS = require("../constants/chainIds.json")
 const ENDPOINTS = require("../constants/layerzeroEndpoints.json")
 
 module.exports = async function (taskArgs, hre) {
@@ -23,3 +22,5 @@ module.exports = async function (taskArgs, hre) {
             value: fees[0],
         })
     ).wait()
+    console.log(`send tx: ${tx.transactionHash}`)
+}

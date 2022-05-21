@@ -13,3 +13,13 @@ module.exports = async function (taskArgs, hre) {
     // concat remote and local address
     let remoteAndLocal = hre.ethers.utils.solidityPack(
         ['address','address'],
+        [taskArgs.srcAddress, taskArgs.desAddress]
+    )
+
+    let bool = await endpoint.hasStoredPayload(taskArgs.srcChainId, remoteAndLocal)
+    console.log(bool)
+    if(bool && taskArgs.clear) {
+        let payload = "0x" + taskArgs.payload
+        let tx = await (await endpoint.retryPayload(taskArgs.srcChainId, remoteAndLocal, payload)).wait()
+        console.log(`tx: ${tx.transactionHash}`)
+    }

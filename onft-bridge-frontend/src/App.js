@@ -1,4 +1,3 @@
-// require("dotenv").config();
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
@@ -23,6 +22,32 @@ import {
   baseGoerli,
   zkSyncTestnet,
   polygon,
+  optimism,
+  // linea,
+  base,
+  zkSync,
+  mantle,
+  polygonZkEvm,
+  bsc
+} from 'wagmi/chains';
+import { alchemyProvider } from 'wagmi/providers/alchemy';
+import { publicProvider } from 'wagmi/providers/public';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
+export const linea : Chain = {
+  id: 59_144,
+  name: 'Linea',
+  network: 'linea',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'ETH',
+    symbol: 'ETH'
+  },
+  rpcUrls: {
+    public: { http: ['https://linea.rpc.thirdweb.com'] },
+    default: { http: ['https://linea.rpc.thirdweb.com'] }
+  },
+  blockExplorers: {
     etherscan: { name: 'SnowTrace', url: 'https://lineascan.build/' },
     default: { name: 'SnowTrace', url: 'https://lineascan.build/' }
   },

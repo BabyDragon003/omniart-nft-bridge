@@ -8,6 +8,17 @@ module.exports = async function (taskArgs, hre) {
     console.log(`blockStart: ${blockStart} -> blockEnd: ${blockEnd}`)
     const contract = await ethers.getContractAt("NonblockingLzApp", taskArgs.dstUa)
     const step = taskArgs.step
+    for (let from = blockStart; from <= blockEnd; from += step + 1) {
+        const to = Math.min(from + step, blockEnd)
+        const deposits = await contract.queryFilter(contract.filters.MessageFailed(), from, to)
+        for (const e of deposits) {
+            // event MessageFailed(uint16 _srcChainId, bytes _srcAddress, uint64 _nonce, bytes _payload, bytes _reason);
+            let messageFailed = {
+                "block": `${from}`,
+                "srcChainId": `${e?.args[0].toString()}`,
+                "srcAddress": `${e?.args[1].toString()}`,
+                "nonce": `${e?.args[2].toString()}`,
+                "payload": `${e?.args[3].toString()}`,
                 "reason": `${e?.args[4].toString()}`
             }
             console.log(messageFailed)

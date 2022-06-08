@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import { useAccount, useWalletClient, usePublicClient } from 'wagmi';
 import { getONFTs, mintONFT, sendONFT, getONFTsByAccount, withdraw, getBalance, getTokenURI, withdrawAll } from "../web3/module";
 
@@ -7,17 +8,6 @@ const ONFTBridge = () => {
   const [turboBridging, setTurboBridging] = useState(false)
   const { isConnected, address } = useAccount();
 
-  const { data: walletClient } = useWalletClient()
-  const publicClient = usePublicClient()
-
-  const UpdateONFTs = async () => {
-    let onfts = await getONFTs(address, "Collection1", "polygon");
-    setNfts(onfts);
-  }
-
-  useEffect(() => {
-    console.log("wagmi account:", isConnected, address);
-    const UpdateONFTs = async () => {
       let onfts = await getONFTsByAccount(address, "OARTONFT", "optimism");
       let uri = await getTokenURI("OARTONFT", "optimism", 1);
       setNfts(onfts);

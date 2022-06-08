@@ -1,3 +1,4 @@
+const CHAIN_ID = require("../constants/chainIds.json")
 const { getDeploymentAddresses } = require("../utils/readStatic")
 
 module.exports = async function (taskArgs, hre) {
@@ -6,17 +7,6 @@ module.exports = async function (taskArgs, hre) {
     let signers = await ethers.getSigners()
     let owner = signers[0]
     console.log(`owner: ${owner.address}`)
-
-    const dstChainId = CHAIN_ID[taskArgs.targetNetwork]
-    const dstStargateComposedAddr = getDeploymentAddresses(taskArgs.targetNetwork)["StargateComposed"]
-    console.log(`dstStargateComposedAddr: ${dstStargateComposedAddr}`)
-
-    // get local contract instance
-    const stargateComposed = await ethers.getContract("StargateComposed")
-    console.log(`[source] stargateComposed.address: ${stargateComposed.address}`)
-
-    let qty = ethers.utils.parseEther(taskArgs.qty) // convert to wei
-    const deadline = (await ethers.provider.getBlock("latest")).timestamp + 10000
 
     const stargateRouterAddress = await stargateComposed.stargateRouter()
     console.log(`[${hre.network.name}] StargateRouter: ${stargateRouterAddress}`)

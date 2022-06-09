@@ -8,16 +8,11 @@
         },
         {
           "internalType": "string",
-          "type": "address"
+          "name": "symbol",
+          "type": "string"
         },
         {
           "internalType": "uint256",
-          "name": "_startMintId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_endMintId",
           "type": "uint256"
         }
       ],

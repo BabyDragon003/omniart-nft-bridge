@@ -13,26 +13,16 @@
         },
         {
           "internalType": "uint256",
+          "name": "_minGasToTransfer",
           "type": "uint256"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
+        },
         {
-          "indexed": true,
           "internalType": "address",
-          "name": "owner",
+          "name": "_layerZeroEndpoint",
           "type": "address"
         },
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "approved",
-          "type": "address"
+          "internalType": "uint256",
         },
         {
           "indexed": true,

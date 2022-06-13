@@ -1,4 +1,3 @@
-const TEST_CHAINS = [
     "mumbai",
     "optimism-goerli",
     "bsc-testnet",

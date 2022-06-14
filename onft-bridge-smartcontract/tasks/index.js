@@ -1,13 +1,8 @@
+// set the Oracle address for the OmniCounter
 // example:
 task("omniCounterSetOracle", "set the UA (an OmniCounter contract) to use the specified oracle for the destination chain", require("./omniCounterSetOracle"))
     .addParam("targetNetwork", "the target network name, ie: fuji, or mumbai, etc (from hardhat.config.js)")
     .addParam("oracle", "the Oracle address for the specified targetNetwork")
-
-// get the Oracle for sending to the destination chain
-task("ocGetOracle", "get the Oracle address being used by the OmniCounter", require("./ocGetOracle")).addParam("targetNetwork", "the target network name, ie: fuji, or mumbai, etc (from hardhat.config.js)")
-
-//
-task("ocPoll", "poll the counter of the OmniCounter", require("./ocPoll"))
 
 //
 task(

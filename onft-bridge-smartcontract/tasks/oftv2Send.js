@@ -13,6 +13,22 @@ module.exports = async function (taskArgs, hre) {
         remoteContract = taskArgs.contract;
     } else {
         localContract = taskArgs.localContract;
+        remoteContract = taskArgs.remoteContract;
+    }
+
+    if(!localContract || !remoteContract) {
+        console.log("Must pass in contract name OR pass in both localContract name and remoteContract name")
+        return
+    }
+
+    let toAddressBytes = ethers.utils.defaultAbiCoder.encode(['address'],[toAddress])
+
+    // get remote chain id
+    const remoteChainId = CHAIN_ID[taskArgs.targetNetwork]
+
+    // get local contract
+    const localContractInstance = await ethers.getContract(localContract)
+
     // quote fee with default adapterParams
     let adapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 200000]) // default adapterParams example
 

@@ -3,6 +3,12 @@ import { ALERT_EMPTY } from "../../utils/constants";
 import * as actions from "../actions"
 
 export const initialState = {
+    wallet: {               // Connected wallet info
+        connected: false,
+        address: "",
+        publicKey: ""
+    },
+    collection: "",         // ONFT721 Collection contract address
 };
 
 const states = (state = initialState, action) => {

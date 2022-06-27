@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: MIT OR Apache-2.0
 pragma solidity >=0.7.6;
 
 library ExcessivelySafeCall {
@@ -18,6 +17,27 @@ library ExcessivelySafeCall {
     /// @param _maxCopy The maximum number of bytes of returndata to copy
     /// to memory.
     /// @param _calldata The data to send to the remote contract
+    /// @return success and returndata, as `.call()`. Returndata is capped to
+    /// `_maxCopy` bytes.
+    function excessivelySafeCall(
+        address _target,
+        uint256 _gas,
+        uint16 _maxCopy,
+        bytes memory _calldata
+    ) internal returns (bool, bytes memory) {
+        // set up for assembly call
+        uint256 _toCopy;
+        bool _success;
+        bytes memory _returnData = new bytes(_maxCopy);
+        // dispatch message to recipient
+        // by assembly calling "handle" function
+        // we call via assembly to avoid memcopying a very large returndata
+        // returned by a malicious contract
+        assembly {
+            _success := call(
+            _gas, // gas
+            _target, // recipient
+            0, // ether value
             add(_calldata, 0x20), // inloc
             mload(_calldata), // inlen
             0, // outloc

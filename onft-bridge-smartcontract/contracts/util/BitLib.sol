@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
 pragma solidity >=0.5.0;
 
 // mostSignificantBitPosition taken from: https://github.com/Uniswap/solidity-lib/blob/master/contracts/libraries/BitMath.sol

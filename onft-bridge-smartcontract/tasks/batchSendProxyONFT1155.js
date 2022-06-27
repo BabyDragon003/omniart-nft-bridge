@@ -1,4 +1,3 @@
-const CHAIN_IDS = require("../constants/chainIds.json")
 const ENDPOINTS = require("../constants/layerzeroEndpoints.json")
 
 module.exports = async function (taskArgs, hre) {
@@ -18,3 +17,10 @@ module.exports = async function (taskArgs, hre) {
     let fees = await endpoint.estimateFees(dstChainId, proxyONFT1155.address, payload, false, "0x")
     console.log(`fees[0] (wei): ${fees[0]}`)
 
+    let tx = await (
+        await proxyONFT1155.sendBatch(dstChainId, owner.address, tokenIds, quantities, owner.address, ethers.constants.AddressZero, "0x", {
+            value: fees[0],
+        })
+    ).wait()
+    console.log(`send tx: ${tx.transactionHash}`)
+}

@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: MIT
 
 pragma solidity >=0.5.0;
 
@@ -18,6 +17,27 @@ interface IONFT721Core is IERC165 {
     event SetDstChainIdToTransferGas(uint16 _dstChainId, uint256 _dstChainIdToTransferGas);
     event SetDstChainIdToBatchLimit(uint16 _dstChainId, uint256 _dstChainIdToBatchLimit);
 
+    /**
+     * @dev Emitted when `_payload` was received from lz, but not enough gas to deliver all tokenIds
+     */
+    event CreditStored(bytes32 _hashedPayload, bytes _payload);
+    /**
+     * @dev Emitted when `_hashedPayload` has been completely delivered
+     */
+    event CreditCleared(bytes32 _hashedPayload);
+
+    /**
+     * @dev send token `_tokenId` to (`_dstChainId`, `_toAddress`) from `_from`
+     * `_toAddress` can be any size depending on the `dstChainId`.
+     * `_zroPaymentAddress` set to address(0x0) if not paying in ZRO (LayerZero Token)
+     * `_adapterParams` is a flexible bytes array to indicate messaging adapter services
+     */
+    function sendFrom(address _from, uint16 _dstChainId, bytes calldata _toAddress, uint _tokenId, address payable _refundAddress, address _zroPaymentAddress, bytes calldata _adapterParams) external payable;
+    /**
+     * @dev send tokens `_tokenIds[]` to (`_dstChainId`, `_toAddress`) from `_from`
+     * `_toAddress` can be any size depending on the `dstChainId`.
+     * `_zroPaymentAddress` set to address(0x0) if not paying in ZRO (LayerZero Token)
+     * `_adapterParams` is a flexible bytes array to indicate messaging adapter services
      */
     function sendBatchFrom(address _from, uint16 _dstChainId, bytes calldata _toAddress, uint[] calldata _tokenIds, address payable _refundAddress, address _zroPaymentAddress, bytes calldata _adapterParams) external payable;
 

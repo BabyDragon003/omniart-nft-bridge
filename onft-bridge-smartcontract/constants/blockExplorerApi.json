@@ -1,4 +1,3 @@
-{
   "avalanche": "https://api.snowtrace.io/api",
   "fuji": "https://api-testnet.snowtrace.io/",
   "bsc": "https://api.bscscan.com/api",
@@ -18,3 +17,10 @@
   "celo": "",
   "dexalot": "",
   "dfk": "",
+  "harmony": "",
+  "intain": "",
+  "klaytn": "",
+  "metis": "",
+  "moonbeam": "https://api-moonbeam.moonscan.io/api",
+  "swimmer": ""
+}

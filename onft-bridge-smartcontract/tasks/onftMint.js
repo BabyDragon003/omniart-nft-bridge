@@ -1,3 +1,4 @@
+module.exports = async function (taskArgs, hre) {
     let contract = await ethers.getContract(taskArgs.contract)
 
     try {
@@ -12,8 +13,3 @@
         } else {
             console.log(e)
         }
-    }
-}
-
-// npx hardhat --network bsc-testnet onftMint --contract ExampleUniversalONFT721
-// npx hardhat --network fuji onftMint --contract ExampleUniversalONFT721

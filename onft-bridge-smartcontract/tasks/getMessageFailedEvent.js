@@ -1,3 +1,4 @@
+module.exports = async function (taskArgs, hre) {
     let blockStart = (await ethers.provider.getTransaction(taskArgs.txStart)).blockNumber
     let blockEnd = taskArgs.txEnd !== undefined ? (await ethers.provider.getTransaction(taskArgs.txEnd)).blockNumber : await ethers.provider.getBlockNumber();
 

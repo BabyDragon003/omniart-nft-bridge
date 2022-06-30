@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -12,12 +13,3 @@ contract ERC721Mock is ERC721 {
     function mint(address to, uint tokenId) public {
         _safeMint(to, tokenId, "");
     }
-
-    function transfer(address to, uint tokenId) public {
-        _safeTransfer(msg.sender, to, tokenId, "");
-    }
-
-    function isApprovedOrOwner(address spender, uint tokenId) public view virtual returns (bool) {
-        return _isApprovedOrOwner(spender, tokenId);
-    }
-}
